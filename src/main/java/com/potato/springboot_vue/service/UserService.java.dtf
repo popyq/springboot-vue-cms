@@ -1,0 +1,40 @@
+package com.potato.springboot_vue.service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.potato.springboot_vue.entity.User;
+import com.potato.springboot_vue.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @Author potato
+ * @PackageName:com.potato.springboot_vue.service
+ * @Description: TODO
+ * @Date 2023-05-14 16:43
+ */
+@Service
+public class UserService extends ServiceImpl<UserMapper,User> {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    public boolean saveUser(User user) {
+//        if (user.getId() == null) {
+//            return save(user); // mybatis-plus 提供的方法,表示插入数据
+//        }else {
+//            return updateById(user); // 更新
+//        }
+        return saveOrUpdate(user);
+    }
+
+//    public int save(User user){
+//        if (user.getId() == null) {  // user没有id,则表示是新增
+//            return   userMapper.insert(user);
+//        }else {  // 否则为更新
+//            return  userMapper.update(user);
+//        }
+//    }
+
+
+
+}
